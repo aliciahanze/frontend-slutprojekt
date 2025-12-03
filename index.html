@@ -1,33 +1,72 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="sv">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Europas Helgdagar 2026</title>
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
 </head>
+<body class="page-body">
 
-<body>
+<div id="app-container" class="app-container">
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
+  <header class="header">
+    <h1 class="header-title">
+      Europas Helgdagar 2026
+    </h1>
+    <p class="header-subtitle">
+      Välj land för att se alla nationella helgdagar för år 2026.
+    </p>
+  </header>
 
+  <div class="controls-card">
+
+    <div class="country-select-section">
+      <h2 class="section-title">Välj land</h2>
+      <label for="countrySelect" class="input-label">Endast Europeiska länder visas:</label>
+      <select
+        id="countrySelect"
+        class="input-field country-select"
+        onchange="fetchHolidays()"
+        disabled
+      >
+        <option value="" disabled selected>Laddar länder...</option>
+      </select>
+    </div>
+
+    <div>
+      <h2 class="section-title">Sök efter specifik helgdag</h2>
+      <label for="nameFilterInput" class="input-label">
+        Skriv in ett namn (T.ex. Jul, Nyår) för att filtrera den visade listan:
+      </label>
+      <input
+        type="text"
+        id="nameFilterInput"
+        placeholder="T.ex. Jul..."
+        onkeyup="handleFilter()"
+        class="input-field filter-input"
+      >
+    </div>
+
+  </div>
+
+  <div id="loading" class="info-message hidden">
+    Laddar helgdagar...
+  </div>
+  <div id="error-message" class="info-message error-message hidden">
+    Kunde inte ladda data. Kontrollera valet av land eller API-åtkomsten.
+  </div>
+  <div id="no-results" class="info-message no-results-message hidden">
+    Inga helgdagar matchade ditt filter.
+  </div>
+
+  <main id="holidaysContainer" class="holidays-container">
+    <p id="initialMessage" class="initial-message">
+      Vänligen välj ett land ovan för att se alla helgdagar för 2026.
+    </p>
+  </main>
+</div>
+
+<script src="js/script.js"></script>
 </body>
-
 </html>
