@@ -37,15 +37,32 @@
     <div>
       <h2 class="section-title">Sök efter specifik helgdag</h2>
       <label for="nameFilterInput" class="input-label">
-        Skriv in helgdagen på engelska eller det talade språket i landet (T.ex. Christmas eller Navidad).
+        Skriv in helgdagen på engelska eller det talade språket i landet
       </label>
       <input
         type="text"
         id="nameFilterInput"
-        placeholder="T.ex. Jul..."
+        placeholder="T.ex. Christmas eller Navidad..."
         onkeyup="handleFilter()"
         class="input-field filter-input"
       >
+    </div>
+
+  </div>
+
+  <div class="sort-card">
+    <div class="sort-select-section">
+      <label for="sortSelect" class="sort-label">Välj sorteringsordning:</label>
+      <select
+        id="sortSelect"
+        class="input-field sort-select"
+        onchange="handleSort()"
+      >
+        <option value="date-asc" selected>Datum (Tidigast först)</option>
+        <option value="date-desc">Datum (Senaste först)</option>
+        <option value="name-asc">Namn (A-Ö)</option>
+        <option value="name-desc">Namn (Ö-A)</option>
+      </select>
     </div>
 
   </div>

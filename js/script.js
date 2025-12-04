@@ -3,7 +3,7 @@ let allHolidays = [];
 const BASE_API_URL = 'https://date.nager.at/api/v3/';
 const FIXED_YEAR = '2026'; // Hårdkodat år för helgdagarna
 
-// Lista över europeiska länder (ISO 3166-1 alpha-2 koder)
+// Lista över europeiska länder
 const EUROPEAN_COUNTRIES = [
   'AL', 'AD', 'AT', 'BY', 'BE', 'BA', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI',
   'FR', 'DE', 'GR', 'HU', 'IS', 'IE', 'IT', 'XK', 'LV', 'LI', 'LT', 'LU', 'MT',
@@ -19,6 +19,7 @@ const holidaysContainer = document.getElementById('holidaysContainer');
 const initialMessage = document.getElementById('initialMessage');
 const countrySelect = document.getElementById('countrySelect');
 const nameFilterInput = document.getElementById('nameFilterInput');
+const sortSelect = document.getElementById('sortSelect');
 
 function updateUIState(state) {
   // Dölj alla tillståndselement först
@@ -149,6 +150,48 @@ async function fetchAvailableCountries() {
   }
 }
 
+// FUNKTION FÖR SORTERING
+function handleSort() {
+  const sortValue = sortSelect.value;
+
+  // Se till att det finns data att sortera
+  if (allHolidays.length === 0) {
+    // Om vi är i initialt läge/tom lista, finns inget att sortera.
+    // Låt handleFilter hantera rendering om sökfältet är ifyllt
+    handleFilter();
+    return;
+  }
+
+  // Sortera den globala listan
+  allHolidays.sort((a, b) => {
+    switch (sortValue) {
+      case 'date-asc':
+        // Jämför datum (tidigast först)
+        return new Date(a.date) - new Date(b.date);
+
+      case 'date-desc':
+        // Jämför datum (senaste först)
+        return new Date(b.date) - new Date(a.date);
+
+      case 'name-asc':
+        // Jämför namn (A-Ö), använder svensk sortering
+        return a.localName.localeCompare(b.localName, 'sv', { sensitivity: 'base' });
+
+      case 'name-desc':
+        // Jämför namn (Ö-A), använder svensk sortering
+        return b.localName.localeCompare(a.localName, 'sv', { sensitivity: 'base' });
+
+      default:
+        return 0; // Ingen sortering
+    }
+  });
+
+  // När allHolidays är sorterad, anropa handleFilter.
+  // handleFilter kommer att filtrera (om sökfältet är ifyllt) och sedan anropa renderHolidays
+  handleFilter();
+}
+
+
 async function fetchHolidays() {
   const countryCode = countrySelect.value;
   const year = FIXED_YEAR; // Använd det fasta året
@@ -171,13 +214,18 @@ async function fetchHolidays() {
       if (response.status === 404) {
         // API returnerar 404 om inga helgdagar hittas för landet/året
         allHolidays = [];
-        renderHolidays([]); // Visa meddelande om inga helgdagar
+        // Om listan är tom, använd renderHolidays direkt för att visa meddelande
+        renderHolidays([]);
       } else {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
     } else {
       allHolidays = await response.json();
-      renderHolidays(allHolidays);
+
+      // ANROPAR handleSort() ISTÄLLET FÖR renderHolidays() DIREKT.
+      // handleSort() kommer att sortera allHolidays och sedan anropa handleFilter(),
+      // som i sin tur anropar renderHolidays().
+      handleSort();
     }
 
   } catch (error) {
@@ -190,7 +238,7 @@ function handleFilter() {
   const searchTerm = nameFilterInput.value.toLowerCase().trim();
 
   if (searchTerm === '') {
-    renderHolidays(allHolidays); // Visa alla om sökfältet är tomt
+    renderHolidays(allHolidays); // Visa alla (sorterade) om sökfältet är tomt
     return;
   }
 
