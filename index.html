@@ -15,7 +15,7 @@
       Europas Helgdagar 2026
     </h1>
     <p class="header-subtitle">
-      Välj land för att se alla nationella helgdagar för år 2026.
+      Välj land för att se datum och veckodag för en nationell helgdag.
     </p>
   </header>
 
@@ -23,7 +23,7 @@
 
     <div class="country-select-section">
       <h2 class="section-title">Välj land</h2>
-      <label for="countrySelect" class="input-label">Endast Europeiska länder visas:</label>
+      <label for="countrySelect" class="input-label">Välj ett land för att se alla landets helgdagar 2026</label>
       <select
         id="countrySelect"
         class="input-field country-select"
@@ -37,7 +37,7 @@
     <div>
       <h2 class="section-title">Sök efter specifik helgdag</h2>
       <label for="nameFilterInput" class="input-label">
-        Skriv in ett namn (T.ex. Jul, Nyår) för att filtrera den visade listan:
+        Skriv in helgdagen på engelska eller det talade språket i landet (T.ex. Christmas eller Navidad).
       </label>
       <input
         type="text"
@@ -57,7 +57,7 @@
     Kunde inte ladda data. Kontrollera valet av land eller API-åtkomsten.
   </div>
   <div id="no-results" class="info-message no-results-message hidden">
-    Inga helgdagar matchade ditt filter.
+    Inga helgdagar matchade ditt filter. Vänligen välj ett land först.
   </div>
 
   <main id="holidaysContainer" class="holidays-container">
