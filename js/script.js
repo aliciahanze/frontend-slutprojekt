@@ -104,7 +104,7 @@ function renderHolidays(holidayList) {
 
 //Kontrollerar och hanterar om listan är tom.
   if (holidayList.length === 0) {
-    if (nameFilterInput.value.trim() !== '') { //
+    if (nameFilterInput.value.trim() !== '') {
       updateUIState('no_filter_match');
     } else {
       const selectedCountryText = countrySelect.options[countrySelect.selectedIndex] ? countrySelect.options[countrySelect.selectedIndex].text : 'valt land';
@@ -160,13 +160,13 @@ async function fetchAvailableCountries() {
 function handleSort() {
   const sortValue = sortSelect.value;
 
-  // Se till att det finns data att sortera och avbryta om det inte finns någon data. Låter handleFilter hantera rendering om sökfältet är ifyllt
+  // Ser till att det finns data att sortera och avbryter om det inte finns någon data. Låter handleFilter hantera rendering om sökfältet är ifyllt
   if (allHolidays.length === 0) {
     handleFilter();
     return;
   }
 
-  // Använder jämförelsefunktion för att sortera listan
+  // Använder jämförelsefunktion för att sortera ordningen av resultaten i listan
   allHolidays.sort((a, b) => {
     switch (sortValue) {
       case 'date-asc':
@@ -194,7 +194,7 @@ function handleSort() {
   handleFilter();
 }
 
-//Asynkron funktion som hämtar de nationella helgdagarna för det valda landet. Funktionen anropas när användaren väljer ett nytt land.
+//Asynkron funktion som hämtar de nationella helgdagarna för det valda landet. Funktionen anropas när användaren väljer ett land.
 async function fetchHolidays() {
   const countryCode = countrySelect.value;
   const year = FIXED_YEAR;
@@ -245,7 +245,7 @@ function handleFilter() {
     return;
   }
 
-  // Filtrera den fullständiga listan av helgdagar. Kontrollerar om söktermen finns i antingen det lokala namnet eller det engelska namnet.
+  // Filtrerar den fullständiga listan av helgdagar. Kontrollerar om söktermen finns i antingen det lokala namnet eller det engelska namnet.
   const filteredHolidays = allHolidays.filter(holiday =>
     holiday.localName.toLowerCase().includes(searchTerm) ||
     holiday.name.toLowerCase().includes(searchTerm)

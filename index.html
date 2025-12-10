@@ -2,6 +2,7 @@
 <!-- Definerar grunden för applikationen och säkerställer att dokumentet är en HTML5-sida,
 att tecken som å,ä och ö hanteras korrekt, och att sidan anpassar sig till olika skärmstorlekar.
 Huvudsyftet är att etablera korrekta tekniska förutsättningar, samt länka in den externa CSS-filen som styr sidans utseende. -->
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -13,8 +14,9 @@ Huvudsyftet är att etablera korrekta tekniska förutsättningar, samt länka in
 <body class="page-body">
 
 <!-- Sidans huvudlayout och rubrik -->
-<!-- Utgör huvudstrukturen för allt synligt innehåll, inneslutet i elementet <body>. Hela applikationen ligger i en central behållare för att hantera leayouten.
- Rubrik och underrubrik/instruktion ger användaren en förståelse för sidans syfte-->
+<!-- Utgör huvudstrukturen för allt innehåll, inneslutet i elementet <body>. Hela applikationen ligger i en central behållare för att hantera layouten.
+ Rubrik och underrubrik/instruktion ger användaren en förståelse för sidans syfte -->
+
 <div id="app-container" class="app-container">
 
   <header class="header">
@@ -26,10 +28,11 @@ Huvudsyftet är att etablera korrekta tekniska förutsättningar, samt länka in
     </p>
   </header>
 
-  <!-- Kotrollsektionen - välj land och sökfilter -->
+  <!-- Kotrollpanel - välj land och sökfilter -->
   <!-- Kärnan i användarinteraktionen. Uppdelad i två huvudfunktioner, landval och sökfiltrering.
-   Landval är en rullgardinsmeny är initialt inaktiverad och väntar på att JavaScript ska ladda länderna. När ett land väljs utlöser den omedelbart funktionen
-   Sökfiltreringen är ett textinmatningsfält som möjliggör dynamisk filtrering. Filterringen sker i realtid medans användaren skriver-->
+   Landval är en rullgardinsmeny som initialt är inaktiverad och väntar på att JavaScript ska ladda länderna. När ett land väljs utlöser den omedelbart funktionen
+   Sökfiltret är ett textinmatningsfält som möjliggör dynamisk filtrering. Filterringen sker i realtid medans användaren skriver -->
+
   <div class="controls-card">
 
     <div class="country-select-section">
@@ -61,9 +64,11 @@ Huvudsyftet är att etablera korrekta tekniska förutsättningar, samt länka in
 
   </div>
 
-  <!-- Sorteringskontrollen -->
+  <!-- Sortering-->
   <!-- Ger användaren möjlighet att organisera resultatet baserat på olika kriterier, antingen datum eller namn.
-   Även sorteringen hanteras av en rullgardinsmeny och fungerar på samma sätt som landvalet, dvs anropar en JavaScript-funktion varje gång ett nytt sorteringsalternativ väljs.-->
+   Även sorteringen hanteras av en rullgardinsmeny och fungerar på samma sätt som landvalet,
+   dvs anropar en JavaScript-funktion varje gång ett nytt sorteringsalternativ väljs av användaren -->
+
   <div class="sort-card">
     <div class="sort-select-section">
       <label for="sortSelect" class="sort-label">Välj sorteringsordning:</label>
@@ -80,10 +85,11 @@ Huvudsyftet är att etablera korrekta tekniska förutsättningar, samt länka in
     </div>
 
   </div>
-  
-  <!-- Meddelandefält -->
-  <!-- Fälten är designade för att ge feedback till användaren om applikationens status. Dessa är inledningsvis dolda, och styrs enbart av JavaScript.
-   De har specifika ID:n för att dynamiskt visas när datan hämtas, när ett fel uppstår, eller när sökfilter inte ger några träffar.-->
+
+  <!-- Meddelanden -->
+  <!-- Fälten är designade för att ge feedback till användaren om applikationens status. Dessa är inledningsvis dolda, och styrs av JavaScript.
+   De har specifika ID:n för att dynamiskt visas när datan hämtas, när ett fel uppstår, eller när sökfilter inte ger några träffar. -->
+
   <div id="loading" class="info-message hidden">
     Laddar helgdagar...
   </div>
@@ -96,7 +102,8 @@ Huvudsyftet är att etablera korrekta tekniska förutsättningar, samt länka in
 
   <!-- Resultatvisning och skriptlänk -->
   <!-- Fokuserar  på att förbereda platsen där resultaten ska visas samt inkludera logik. Element <main id="holidaysContainer"> är den primära behållaren där Javacript bygger och infogar den fullstädiga listan.
-   Avslutningsvis laddas  den externa JavaScript-filen, vilket är enligt praxis, för att säkerställa att all HTML är strukturerad och laddad i webbläsaren innan skriptet börjar exekvera och maniplera sidans innehåll.-->
+   Avslutningsvis laddas  den externa JavaScript-filen, vilket är enligt praxis, för att säkerställa att all HTML är strukturerad och laddad i webbläsaren innan skriptet börjar exekvera och manipulera sidans innehåll. -->
+
   <main id="holidaysContainer" class="holidays-container">
     <p id="initialMessage" class="initial-message">
       Vänligen välj ett land ovan för att se alla helgdagar för 2026.

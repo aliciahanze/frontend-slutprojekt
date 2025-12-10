@@ -1,176 +1,175 @@
-/* Generellt */
+
+/* Generella grunder och huvudlayout */
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased; /* För bättre typsnittsrendering på Mac/Linux */
-  margin: 0; /* Tar bort standardmarginal */
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
 }
 
-/* Anpassad Styling */
-
 .page-body {
-  /* Bakgrund och minimal höjd för centrerad layout */
-  background-color: #fdf0e1; /* bg-gray-50 */
+  background-color: #fdf0e1;
   min-height: 100vh;
-  padding: 1rem; /* p-4 */
+  padding: 1rem;
 }
 
 .app-container {
-  /* Maxbredd och centrering */
-  max-width: 48rem; /* max-w-4xl */
+  max-width: 48rem;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Responsiv justering för padding */
 @media (min-width: 640px) {
   .page-body {
-    padding: 2rem; /* sm:p-8 */
+    padding: 2rem;
   }
 }
 
-/* Header Styling */
+
+/* Header */
+
 .header {
   text-align: center;
-  margin-bottom: 2.5rem; /* mb-10 */
+  margin-bottom: 2.5rem;
 }
 
 .header-title {
-  font-size: 2.25rem; /* text-4xl */
-  font-weight: 800; /* font-extrabold */
-  color: #954333; /* text-indigo-700 */
-  margin-bottom: 0.5rem; /* mb-2 */
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #954333;
+  margin-bottom: 0.5rem;
 }
 
-/* Större rubrik på större skärmar */
 @media (min-width: 640px) {
   .header-title {
-    font-size: 3rem; /* sm:text-5xl */
+    font-size: 3rem;
   }
 }
 
 .header-subtitle {
-  font-size: 1.125rem; /* text-lg */
-  color: #954333; /* text-gray-600 */
+  font-size: 1.125rem;
+  color: #954333;
 }
 
-/* Kontrollpanel Styling */
+
+/* Kontrollpanel */
+
 .controls-card {
-  padding: 1.5rem; /* p-6 */
-  background-color: #c66f5a; /* bg-white */
-  border-radius: 0.75rem; /* rounded-xl */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-  margin-bottom: 2rem; /* mb-8 */
+  padding: 1.5rem;
+  background-color: #c66f5a;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
 }
 
 .country-select-section {
-  margin-bottom: 1.5rem; /* mb-6 */
-  padding-bottom: 1.5rem; /* pb-6 */
-  border-bottom: 1px solid #fdf0e1; /* border-b border-gray-200 */
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #fdf0e1;
 }
 
 .section-title {
-  font-size: 1.25rem; /* text-xl */
-  font-weight: 700; /* font-bold */
-  color: #fdf0e1; /* text-gray-800 */
-  margin-bottom: 0.75rem; /* mb-3 */
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fdf0e1;
+  margin-bottom: 0.75rem;
 }
 
 .input-label {
   display: block;
-  font-size: 0.875rem; /* text-sm */
-  font-weight: 500; /* font-medium */
-  color: #fdf0e1; /* text-gray-700 */
-  margin-bottom: 0.25rem; /* mb-1 */
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fdf0e1;
+  margin-bottom: 0.25rem;
 }
 
 .input-field {
-  width: 100%; /* w-full */
-  padding: 0.5rem 1rem; /* px-4 py-2 */
-  border: 1px solid #954333; /* border border-gray-300 */
-  border-radius: 0.5rem; /* rounded-lg */
-  color: #954333; /* text-gray-800 */
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #954333;
+  border-radius: 0.5rem;
+  color: #954333;
   background-color: #ffffff;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* transition duration-150 */
-  box-sizing: border-box; /* Se till att padding inte ökar totalbredden */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing: border-box;
 }
+
 .input-field::placeholder {
   color: #954333;
 }
 
 .input-field:focus {
-  border-color: #954333; /* focus:border-indigo-500 */
-  box-shadow: 0 0 0 3px rgb(149, 67, 51); /* focus:ring-indigo-500 */
+  border-color: #954333;
+  box-shadow: 0 0 0 3px rgb(149, 67, 51);
   outline: none;
 }
 
-/* Meddelandestyling */
+
+/* Meddelanden */
+
 .info-message {
   text-align: center;
-  padding: 3rem; /* p-12 */
-  font-size: 1.25rem; /* text-xl */
-  font-weight: 600; /* font-semibold */
-  color: #954333; /* text-gray-500 */
+  padding: 3rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #954333;
 }
 
 .error-message {
-  color: #ef4444; /* text-red-500 */
+  color: #ef4444;
 }
 
-/* Dölj-klass */
 .hidden {
   display: none;
 }
 
-/* Initialt Meddelande */
 .initial-message {
   text-align: center;
-  color: #954333; /* text-gray-500 */
-  padding: 3rem; /* p-12 */
-  background-color: #954333; /* bg-white */
-  border-radius: 0.75rem; /* rounded-xl */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); /* shadow-md */
+  color: #954333;
+  padding: 3rem;
+  background-color: #954333;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
 }
 
-/* Helgdags Container Styling */
+
+/* Resultatlista och helgdagskort */
+
 .holidays-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* space-y-4 */
+  gap: 1rem;
 }
 
-/* Helgdagskort Styling */
 .holiday-card {
-  background-color: #fff7f3; /* bg-white */
-  padding: 1.5rem; /* p-6 */
-  border-radius: 0.75rem; /* rounded-xl */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); /* shadow-md */
-  border: 1px solid rgb(255, 247, 243); /* border border-indigo-100 */
+  background-color: #fff7f3;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgb(255, 247, 243);
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  /* Custom hover-effekt */
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .holiday-card:hover {
-  transform: translateY(-2px); /* translateY(-2px) */
-  /* Återskapa indigo-skuggan */
+  transform: translateY(-2px);
   box-shadow: 0 8px 15px rgba(49, 46, 129, 0.15), 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .holiday-card h2 {
-  font-size: 1.25rem; /* text-xl */
-  font-weight: 700; /* font-bold */
-  color: #954333; /* text-gray-800 */
-  margin-bottom: 0.25rem; /* mb-1 */
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #954333;
+  margin-bottom: 0.25rem;
 }
 
 .holiday-card p {
-  font-size: 0.875rem; /* text-sm */
-  color: #c66f5a; /* text-indigo-600 */
-  font-weight: 500; /* font-medium */
+  font-size: 0.875rem;
+  color: #c66f5a;
+  font-weight: 500;
   margin: 0;
 }
 
@@ -179,30 +178,13 @@ body {
 }
 
 .holiday-card .text-right p {
-  font-size: 1.125rem; /* text-lg */
-  font-weight: 600; /* font-semibold */
-  color: #954333; /* text-gray-700 */
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #954333;
 }
 
-/* Ikon/Flagga styling */
-.holiday-card img {
-  width: 1.25rem; /* w-5 */
-  height: auto;
-  display: inline-block;
-  margin-right: 0.5rem; /* mr-2 */
-  border-radius: 0.125rem; /* rounded-sm */
-  border: 1px solid #e5e7eb; /* border border-gray-200 */
-  vertical-align: middle;
-}
 
-.holiday-card svg {
-  width: 1rem; /* w-4 */
-  height: 1rem; /* h-4 */
-  display: inline-block;
-  margin-right: 0.25rem; /* mr-1 */
-  color: #954333; /* text-indigo-500 */
-  vertical-align: middle;
-}
+/* Sortering */
 
 .sort-card {
   color: #954333;
@@ -214,4 +196,26 @@ body {
 .sort-select{
   margin-top: 5px;
   margin-bottom: 25px;
+}
+
+
+/* Ikon och flagga */
+
+.holiday-card img {
+  width: 1.25rem;
+  height: auto;
+  display: inline-block;
+  margin-right: 0.5rem;
+  border-radius: 0.125rem;
+  border: 1px solid #ffffff;
+  vertical-align: middle;
+}
+
+.holiday-card svg {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.25rem;
+  color: #954333;
+  vertical-align: middle;
 }
